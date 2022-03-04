@@ -41,7 +41,7 @@
             <div class="header">
 
 				<!-- Logo -->
-                <div class="header-left">
+                <div class="header-left mt-3">
                     <a href="{{ route('dashboard') }}" class="logo">
 						<img src="{{ asset('assets/img/logo.png') }}" alt="Logo">
 					</a>
@@ -106,9 +106,9 @@
 					<!-- /Notifications -->
 
 					<!-- User Menu -->
-					<li class="nav-item dropdown has-arrow">
-						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-							<span class="user-img"><img class="rounded-circle" src="{{ Auth::user()->profile_photo_url }}" width="31" alt="{{ Auth::user()->name }}"></span>
+					<li class="nav-item dropdown has-arrow  mt-3">
+						<a href="#" class="dropdown-toggle nav-link" style="background-color: white;margin-top:-2px" data-toggle="dropdown">
+							<span class="user-img"><img class="rounded-full w-80" src="{{ Auth::user()->profile_photo_url }}" width="31" alt="{{ Auth::user()->name }}"></span>
 						</a>
 						<div class="dropdown-menu">
 							<div class="user-header">
@@ -149,7 +149,19 @@
 								<span>Main</span>
 							</li>
 							<li>
-								<a href="index.html"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+								<a href="{{ route('dashboard') }}"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+							</li>
+                            <li class="submenu">
+								<a href="#"><i class="fe fe-document"></i> <span> Products</span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a href="products.html">Products</a></li>
+									<li><a href="add-product.html">Add Product</a></li>
+									<li><a href="outstock.html">Out-Stock</a></li>
+									<li><a href="expired.html">Expired</a></li>
+								</ul>
+							</li>
+                            <li>
+								<a href="{{ route('dashboard') }}"><i class="fe fe-home"></i> <span>Dashboard</span></a>
 							</li>
 						</ul>
 					</div>
@@ -183,7 +195,7 @@
         <script src="{{ asset('assets/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
 
 		<!-- Custom JS -->
-		<script  src="{{ asset('assets/js/script.js"') }}"></script>
+		<script  src="{{ asset('assets/js/script.js') }}"></script>
 
     </body>
 </html>
