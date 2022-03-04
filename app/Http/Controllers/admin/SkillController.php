@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
-use App\Models\WorkExprience;
-use App\Http\Requests\StoreWorkExprienceRequest;
-use App\Http\Requests\UpdateWorkExprienceRequest;
+use App\Models\Skill;
+use App\Http\Requests\StoreSkillRequest;
+use App\Http\Requests\UpdateSkillRequest;
 
-class WorkExprienceController extends Controller
+class SkillController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class WorkExprienceController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreWorkExprienceRequest  $request
+     * @param  \App\Http\Requests\StoreSkillRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreWorkExprienceRequest $request)
+    public function store(StoreSkillRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class WorkExprienceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\WorkExprience  $workExprience
+     * @param  \App\Models\Skill  $skill
      * @return \Illuminate\Http\Response
      */
-    public function show(WorkExprience $workExprience)
+    public function show(Skill $skill)
     {
         //
     }
@@ -53,10 +53,10 @@ class WorkExprienceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\WorkExprience  $workExprience
+     * @param  \App\Models\Skill  $skill
      * @return \Illuminate\Http\Response
      */
-    public function edit(WorkExprience $workExprience)
+    public function edit(Skill $skill)
     {
         //
     }
@@ -64,11 +64,11 @@ class WorkExprienceController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateWorkExprienceRequest  $request
-     * @param  \App\Models\WorkExprience  $workExprience
+     * @param  \App\Http\Requests\UpdateSkillRequest  $request
+     * @param  \App\Models\Skill  $skill
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateWorkExprienceRequest $request, WorkExprience $workExprience)
+    public function update(UpdateSkillRequest $request, Skill $skill)
     {
         //
     }
@@ -76,10 +76,10 @@ class WorkExprienceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\WorkExprience  $workExprience
+     * @param  \App\Models\Skill  $skill
      * @return \Illuminate\Http\Response
      */
-    public function destroy(WorkExprience $workExprience)
+    public function destroy(Skill $skill)
     {
         //
     }

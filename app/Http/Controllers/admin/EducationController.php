@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
-use App\Models\Hobby;
-use App\Http\Requests\StoreHobbyRequest;
-use App\Http\Requests\UpdateHobbyRequest;
+use App\Models\Education;
+use App\Http\Requests\StoreEducationRequest;
+use App\Http\Requests\UpdateEducationRequest;
 
-class HobbyController extends Controller
+class EducationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class HobbyController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreHobbyRequest  $request
+     * @param  \App\Http\Requests\StoreEducationRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreHobbyRequest $request)
+    public function store(StoreEducationRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class HobbyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Hobby  $hobby
+     * @param  \App\Models\Education  $education
      * @return \Illuminate\Http\Response
      */
-    public function show(Hobby $hobby)
+    public function show(Education $education)
     {
         //
     }
@@ -53,10 +53,10 @@ class HobbyController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Hobby  $hobby
+     * @param  \App\Models\Education  $education
      * @return \Illuminate\Http\Response
      */
-    public function edit(Hobby $hobby)
+    public function edit(Education $education)
     {
         //
     }
@@ -64,11 +64,11 @@ class HobbyController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateHobbyRequest  $request
-     * @param  \App\Models\Hobby  $hobby
+     * @param  \App\Http\Requests\UpdateEducationRequest  $request
+     * @param  \App\Models\Education  $education
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateHobbyRequest $request, Hobby $hobby)
+    public function update(UpdateEducationRequest $request, Education $education)
     {
         //
     }
@@ -76,10 +76,10 @@ class HobbyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Hobby  $hobby
+     * @param  \App\Models\Education  $education
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Hobby $hobby)
+    public function destroy(Education $education)
     {
         //
     }

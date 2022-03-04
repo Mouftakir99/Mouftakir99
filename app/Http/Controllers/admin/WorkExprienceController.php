@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
-use App\Models\ExtraSkill;
-use App\Http\Requests\StoreExtraSkillRequest;
-use App\Http\Requests\UpdateExtraSkillRequest;
+use App\Models\WorkExprience;
+use App\Http\Requests\StoreWorkExprienceRequest;
+use App\Http\Requests\UpdateWorkExprienceRequest;
 
-class ExtraSkillController extends Controller
+class WorkExprienceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class ExtraSkillController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreExtraSkillRequest  $request
+     * @param  \App\Http\Requests\StoreWorkExprienceRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreExtraSkillRequest $request)
+    public function store(StoreWorkExprienceRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class ExtraSkillController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ExtraSkill  $extraSkill
+     * @param  \App\Models\WorkExprience  $workExprience
      * @return \Illuminate\Http\Response
      */
-    public function show(ExtraSkill $extraSkill)
+    public function show(WorkExprience $workExprience)
     {
         //
     }
@@ -53,10 +53,10 @@ class ExtraSkillController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\ExtraSkill  $extraSkill
+     * @param  \App\Models\WorkExprience  $workExprience
      * @return \Illuminate\Http\Response
      */
-    public function edit(ExtraSkill $extraSkill)
+    public function edit(WorkExprience $workExprience)
     {
         //
     }
@@ -64,11 +64,11 @@ class ExtraSkillController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateExtraSkillRequest  $request
-     * @param  \App\Models\ExtraSkill  $extraSkill
+     * @param  \App\Http\Requests\UpdateWorkExprienceRequest  $request
+     * @param  \App\Models\WorkExprience  $workExprience
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateExtraSkillRequest $request, ExtraSkill $extraSkill)
+    public function update(UpdateWorkExprienceRequest $request, WorkExprience $workExprience)
     {
         //
     }
@@ -76,10 +76,10 @@ class ExtraSkillController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ExtraSkill  $extraSkill
+     * @param  \App\Models\WorkExprience  $workExprience
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ExtraSkill $extraSkill)
+    public function destroy(WorkExprience $workExprience)
     {
         //
     }

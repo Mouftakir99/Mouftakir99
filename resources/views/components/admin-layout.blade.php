@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <title>Doccure - Blank Page</title>
+        <title>{{ config('app.name', 'Laravel') }}</title>
 
 		<!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
@@ -174,7 +174,7 @@
         <script src="{{ asset('assets/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
 
 		<!-- Custom JS -->
-		<script  src="{{ asset('assets/js/script.js"') }}"></script>
+		<script  src="{{ asset('assets/js/script.js') }}"></script>
 
     </body>
 </html>

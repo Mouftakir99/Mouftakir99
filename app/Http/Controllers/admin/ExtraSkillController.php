@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
-use App\Models\SocialMedia;
-use App\Http\Requests\StoreSocialMediaRequest;
-use App\Http\Requests\UpdateSocialMediaRequest;
+use App\Models\ExtraSkill;
+use App\Http\Requests\StoreExtraSkillRequest;
+use App\Http\Requests\UpdateExtraSkillRequest;
 
-class SocialMediaController extends Controller
+class ExtraSkillController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class SocialMediaController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreSocialMediaRequest  $request
+     * @param  \App\Http\Requests\StoreExtraSkillRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreSocialMediaRequest $request)
+    public function store(StoreExtraSkillRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class SocialMediaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\SocialMedia  $socialMedia
+     * @param  \App\Models\ExtraSkill  $extraSkill
      * @return \Illuminate\Http\Response
      */
-    public function show(SocialMedia $socialMedia)
+    public function show(ExtraSkill $extraSkill)
     {
         //
     }
@@ -53,10 +53,10 @@ class SocialMediaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\SocialMedia  $socialMedia
+     * @param  \App\Models\ExtraSkill  $extraSkill
      * @return \Illuminate\Http\Response
      */
-    public function edit(SocialMedia $socialMedia)
+    public function edit(ExtraSkill $extraSkill)
     {
         //
     }
@@ -64,11 +64,11 @@ class SocialMediaController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateSocialMediaRequest  $request
-     * @param  \App\Models\SocialMedia  $socialMedia
+     * @param  \App\Http\Requests\UpdateExtraSkillRequest  $request
+     * @param  \App\Models\ExtraSkill  $extraSkill
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateSocialMediaRequest $request, SocialMedia $socialMedia)
+    public function update(UpdateExtraSkillRequest $request, ExtraSkill $extraSkill)
     {
         //
     }
@@ -76,10 +76,10 @@ class SocialMediaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\SocialMedia  $socialMedia
+     * @param  \App\Models\ExtraSkill  $extraSkill
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SocialMedia $socialMedia)
+    public function destroy(ExtraSkill $extraSkill)
     {
         //
     }
