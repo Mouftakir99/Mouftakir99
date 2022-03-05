@@ -28,7 +28,7 @@ class StoreWorkExprienceRequest extends FormRequest
             'statut_work_exprience' => 'required',
             'description_work_exprience' => 'required',
             'start_work_exprience' =>'required_if:end_work_exprience,nullable',
-            'end_work_exprience' => 'required'
+            'end_work_exprience' => 'required_if:start_work_exprience,nullable'
         ];
     }
 }

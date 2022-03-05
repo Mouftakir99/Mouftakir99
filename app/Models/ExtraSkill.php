@@ -19,7 +19,7 @@ class ExtraSkill extends Model
     protected $fillable = [
         'name_extra_skill',
         'desciption_extra_skill',
-        'pourcentage_extra_skills',
+        'pourcentage_extra_skill',
         'user_id'
     ];
 

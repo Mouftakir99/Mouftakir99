@@ -38,30 +38,15 @@ class HobbyController extends Controller
      */
     public function store(StoreHobbyRequest $request)
     {
-        //
+        try{
+            Hobby::query()->create($request->all());
+            return back()->with('status','your Hobby has been inserted !!');
+        }
+        catch(Exception $ex){
+            return back()->with('failed',"operation failed");
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Hobby  $hobby
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Hobby $hobby)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Hobby  $hobby
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Hobby $hobby)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -72,7 +57,16 @@ class HobbyController extends Controller
      */
     public function update(UpdateHobbyRequest $request, Hobby $hobby)
     {
-        //
+        try{
+            $data = $request->all();
+
+            $hobby->update($data);
+
+            return back()->with('status','your Hobby has been updated !!');
+        }
+        catch(Exception $ex){
+            return back()->with('failed',"operation failed");
+        }
     }
 
     /**
@@ -83,6 +77,15 @@ class HobbyController extends Controller
      */
     public function destroy(Hobby $hobby)
     {
-        //
+        try{
+            $data = $request->all();
+
+            $hobby->update($data);
+
+            return back()->with('status','your Hobby has been deleted !!');
+        }
+        catch(Exception $ex){
+            return back()->with('failed',"operation failed");
+        }
     }
 }

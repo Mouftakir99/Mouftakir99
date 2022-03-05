@@ -3,14 +3,14 @@
     <div class="page-header">
         <div class="row">
             <div class="col-sm-7 col-auto">
-                <h3 class="page-title">languages</h3>
+                <h3 class="page-title">Skills</h3>
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                    <li class="breadcrumb-item active">languages</li>
+                    <li class="breadcrumb-item active">Skills</li>
                 </ul>
             </div>
             <div class="col-sm-5 col">
-                <a  href="javascript:void(0);" class="btn btn-primary float-right mt-2" data-toggle="modal" data-target="#AddModal">Add New languages</a>
+                <a  href="javascript:void(0);" class="btn btn-primary float-right mt-2" data-toggle="modal" data-target="#AddModal">Add New Skills</a>
             </div>
         </div>
     </div>
@@ -44,30 +44,30 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Name</th>
-                                    <th>Level</th>
+                                    <th>pourcentage</th>
                                     <th>User Name</th>
                                     <th>action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @php  $x='';  @endphp
-                                @forelse (Auth::user()->languagues as $key => $languague)
+                                @forelse (Auth::user()->skills as $key => $skill)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
-                                        <td>{{ $languague->name_languague }}</td>
-                                        <td>{{ $languague->level_languague }}</td>
-                                        <td>{{ $languague->user->email }}</td>
+                                        <td>{{ $skill->name_skill }}</td>
+                                        <td>{{ $skill->pourcentage_skill }}</td>
+                                        <td>{{ $skill->user->email }}</td>
                                         <td>
                                             <div class="actions">
                                                 <a class="btn btn-sm bg-success-light"
-                                                    onclick="{{ $x= $languague->id }};
-                                                    $('#user_id').val('{{ $languague->user_id }}');
-                                                    $('#name_languague').val('{{ $languague->name_languague }}');
-                                                    $('#level_languague').val('{{ $languague->level_languague }}');"
+                                                    onclick="{{ $x= $skill->id }};
+                                                    $('#user_id').val('{{ $skill->user_id }}');
+                                                    $('#name_skill').val('{{ $skill->name_skill }}');
+                                                    $('#pourcentage_skill').val('{{ $skill->pourcentage_skill }}');"
                                                     data-toggle="modal" data-target="#UpdateModal">
                                                     <i class="fe fe-pencil"></i> Edit
                                                 </a>
-                                                <a href="javascript:void(0);" onclick="{{ $x= $languague->id }}" class="btn btn-sm bg-danger-light" data-toggle="modal" data-target="#deleteConfirmModal">
+                                                <a href="javascript:void(0);" onclick="{{ $x= $skill->id }}" class="btn btn-sm bg-danger-light" data-toggle="modal" data-target="#deleteConfirmModal">
                                                     <i class="fe fe-trash"></i> Delete
                                                 </a>
                                             </div>
@@ -93,22 +93,22 @@
         <div class="modal-dialog model-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="acc_title">update languague</h5>
+                    <h5 class="modal-title" id="acc_title">update skill</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <form action="{{ route('languagues/updated',$x) }}" method="POST">
+                <form action="{{ route('skills/updated',$x) }}" method="POST">
                     @csrf
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <label for="name_languague">Name languague :</label>
-                                <input type="text" class="form-control" name="name_languague" id="name_languague">
+                                <label for="name_skill">Name skill :</label>
+                                <input type="text" class="form-control" name="name_skill" id="name_skill">
                             </div>
                             <div class="col-md-12">
-                                <label for="level_languague">level languague:</label>
-                                <input type="text" class="form-control" name="level_languague" id="level_languague">
+                                <label for="pourcentage_skill">pourcentage skill:</label>
+                                <input type="text" class="form-control" name="pourcentage_skill" id="pourcentage_skill">
                             </div>
                             <input type="text" class="form-control d-none" name="user_id"  id="user_id">
                         </div>
@@ -129,41 +129,22 @@
         <div class="modal-dialog modal-fullscreen-lg-down">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="acc_title">Delete</h5>
+                    <h5 class="modal-title" id="acc_title">Add New Skill</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <form action="{{ route('languagues/added') }}" method="POST">
+                <form action="{{ route('skills/added') }}" method="POST">
                     @csrf
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <label for="name_languague">Name languague :</label>
-                                <input type="text" class="form-control" name="name_languague">
+                                <label for="name_skill">Name skill :</label>
+                                <input type="text" class="form-control" name="name_skill">
                             </div>
                             <div class="col-md-12">
-                                <label for="level_languague">level languague:</label>
-                                <div class="ml-2 form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="level_languague" id="inlineRadio1" value="1">
-                                    <label class="form-check-label" for="inlineRadio1">1</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="level_languague" id="inlineRadio2" value="2">
-                                    <label class="form-check-label" for="inlineRadio2">2</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="level_languague" id="inlineRadio3" value="3">
-                                    <label class="form-check-label" for="inlineRadio3">3</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="level_languague" id="inlineRadio4" value="4">
-                                    <label class="form-check-label" for="inlineRadio4">4</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="level_languague" id="inlineRadio5" value="5">
-                                    <label class="form-check-label" for="inlineRadio5">5</label>
-                                </div>
+                                <label for="pourcentage_skill">pourcentage skill:</label>
+                                <input type="text" class="form-control" name="pourcentage_skill">
                             </div>
                             <input type="text" class="form-control d-none" name="user_id"  id="user_id"  value="{{ Auth::user()->id }}">
 
@@ -183,7 +164,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="acc_title">Delete</h5>
+                    <h5 class="modal-title" id="acc_title">Delete </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -192,7 +173,7 @@
                     <p id="acc_msg">are you sure you want to delete?</p>
                 </div>
                 <div class="modal-footer">
-                    <a href="{{ route('workExperiences/delete',$x) }}" class="btn btn-success si_accept_confirm">Yes</a>
+                    <a href="{{ route('skills/delete',$x) }}" class="btn btn-success si_accept_confirm">Yes</a>
                     <button type="button" class="btn btn-danger si_accept_cancel" data-dismiss="modal">Cancel</button>
                 </div>
             </div>

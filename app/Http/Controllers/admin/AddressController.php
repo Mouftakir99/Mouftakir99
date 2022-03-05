@@ -21,15 +21,6 @@ class AddressController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -42,27 +33,6 @@ class AddressController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Address  $address
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Address $address)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Address  $address
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Address $address)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -73,7 +43,16 @@ class AddressController extends Controller
      */
     public function update(UpdateAddressRequest $request, Address $address)
     {
-        //
+        try{
+            $data = $request->all();
+
+            $address->update($data);
+
+            return back()->with('status','your address has been updated !!');
+        }
+        catch(Exception $ex){
+            return back()->with('failed',"operation failed");
+        }
     }
 
     /**

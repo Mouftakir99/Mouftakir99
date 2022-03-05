@@ -3,14 +3,14 @@
     <div class="page-header">
         <div class="row">
             <div class="col-sm-7 col-auto">
-                <h3 class="page-title">Work Experiences</h3>
+                <h3 class="page-title">Education</h3>
                 <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Work Experiences</li>
+                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Education</li>
                 </ul>
             </div>
             <div class="col-sm-5 col">
-                <a href="{{ route('AddworkExperiences') }}" class="btn btn-primary float-right mt-2">Add New Work Experiences</a>
+                <a href="{{ route('AddEducations') }}" class="btn btn-primary float-right mt-2">Add Education</a>
             </div>
         </div>
     </div>
@@ -53,33 +53,33 @@
                             </thead>
                             <tbody>
                                 @php  $x='';  @endphp
-                                @forelse (Auth::user()->workExperiences as $key => $workExperience)
+                                @forelse (Auth::user()->educations as $key => $education)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
-                                        <td>{{ $workExperience->name_work_exprience }}</td>
-                                        <td>{{ $workExperience->statut_work_exprience }}</td>
+                                        <td>{{ $education->name_education }}</td>
+                                        <td>{{ $education->statut_education  }}</td>
                                         <td>
-                                            @if ( strlen($workExperience->description_work_exprience) > 20)
-                                                {{ substr($workExperience->description_work_exprience , 0, 20).'...';}}
+                                            @if ( strlen($education->description_education ) > 20)
+                                                {{ substr($education->description_education  , 0, 20).'...';}}
                                                 @else
-                                                    {{ $workExperience->description_work_exprience  }}
+                                                    {{ $education->description_education   }}
                                             @endif
                                         </td>
-                                        <td>{{ $workExperience->start_work_exprience }}</td>
-                                        <td>{{ $workExperience->end_work_exprience }}</td>
+                                        <td>{{ $education->start_education  }}</td>
+                                        <td>{{ $education->end_education  }}</td>
                                         <td>
                                             <div class="actions">
                                                 <a class="btn btn-sm bg-success-light"
-                                                    onclick="{{ $x= $workExperience->id }};
-                                                    $('#user_id').val('{{ $workExperience->user_id }}');
-                                                    $('#name_work_exprience').val('{{ $workExperience->name_work_exprience }}');
-                                                    $('#statut_work_exprience').val('{{ $workExperience->statut_work_exprience }}');
-                                                    $('#description_work_exprience').val('{{ $workExperience->description_work_exprience }}');
-                                                    $('#start_work_exprience').val('{{ $workExperience->start_work_exprience }}');
-                                                    $('#end_work_exprience').val('{{ $workExperience->end_work_exprience }}');" data-toggle="modal" data-target="#UpdateModal">
+                                                    onclick="{{ $x= $education->id }};
+                                                    $('#user_id').val('{{ $education->user_id }}');
+                                                    $('#name_education').val('{{ $education->name_education }}');
+                                                    $('#statut_education').val('{{ $education->statut_education }}');
+                                                    $('#description_education').val('{{ $education->description_education }}');
+                                                    $('#start_education').val('{{ $education->start_education }}');
+                                                    $('#end_education').val('{{ $education->end_education }}');" data-toggle="modal" data-target="#UpdateModal">
                                                     <i class="fe fe-pencil"></i> Edit
                                                 </a>
-                                                <a href="javascript:void(0);" onclick="{{ $x= $workExperience->id }}" class="btn btn-sm bg-danger-light" data-toggle="modal" data-target="#deleteConfirmModal">
+                                                <a href="javascript:void(0);" onclick="{{ $x= $education->id }}" class="btn btn-sm bg-danger-light" data-toggle="modal" data-target="#deleteConfirmModal">
                                                     <i class="fe fe-trash"></i> Delete
                                                 </a>
                                             </div>
@@ -90,29 +90,6 @@
                                         <td class="text-center" colspan="7" style="background: lightseagreen;color:white"><div class="btn btn-sm bg-danger-light" style="width:'500px'">No Data Found</div></td>
                                     </tr>
                                 @endforelse
-                                {{-- <tr>
-                                    <td>8</td>
-                                    <td>
-                                        <h2 class="table-avatar">
-                                            <span class="avatar avatar-sm mr-2"><img class="avatar-img" src="assets/img/product/product10.jpg" alt="product image"></span>
-                                            Lysofranil Dorzostin
-                                        </h2>
-                                    </td>
-                                    <td>Hair care</td>
-                                    <td>$10</td>
-                                    <td>0%</td>
-                                    <td><span class="btn btn-sm bg-danger-light">THE PRODUCT IS EXPIRED</span></td>
-                                    <td>
-                                        <div class="actions">
-                                            <a class="btn btn-sm bg-success-light" href="javascript:void(0);" data-toggle="modal" data-target="#UpdateModal">
-                                                <i class="fe fe-pencil"></i> Edit
-                                            </a>
-                                            <a href="javascript:void(0);" class="btn btn-sm bg-danger-light" data-toggle="modal" data-target="#deleteConfirmModal">
-                                                <i class="fe fe-trash"></i> Delete
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr> --}}
                             </tbody>
                         </table>
                     </div>
@@ -127,35 +104,35 @@
         <div class="modal-dialog model-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="acc_title">Update Work Experience</h5>
+                    <h5 class="modal-title" id="acc_title">Update Education</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <form action="{{ route('workExperiences/updated',$x) }}" method="POST">
+                <form action="{{ route('educations/updated',$x) }}" method="POST">
                     @csrf
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <label for="name_work_exprience">Name Work Experience :</label>
-                                <input type="text" class="form-control" name="name_work_exprience" id="name_work_exprience">
+                                <label for="name_work_exprience">Name Education :</label>
+                                <input type="text" class="form-control" name="name_education" id="name_education">
                             </div>
                             <div class="col-md-12">
-                                <label for="statut_work_exprience">Status Work Experience :</label>
-                                <input type="text" class="form-control" name="statut_work_exprience" id="statut_work_exprience">
+                                <label for="statut_education">Status Education :</label>
+                                <input type="text" class="form-control" name="statut_education" id="statut_education">
                             </div>
                             <div class="col-md-12">
-                                <label for="description_work_exprience">Description Work Experience :</label>
-                                <textarea name="description_work_exprience" class="form-control autogrow" id="description_work_exprience" cols="30" rows="10"></textarea>
+                                <label for="description_education">Description Education :</label>
+                                <textarea name="description_education" class="form-control autogrow" id="description_education" cols="30" rows="10"></textarea>
                             </div>
 
                             <div class="col-md-6">
-                                <label for="start_work_exprience">Start :</label>
-                                <input type="date" class="form-control" name="start_work_exprience"  id="start_work_exprience" >
+                                <label for="start_education">Start :</label>
+                                <input type="date" class="form-control" name="start_education"  id="start_education" >
                             </div>
                             <div class="col-md-6">
-                                <label for="end_work_exprience">End :</label>
-                                <input type="date" class="form-control" name="end_work_exprience"  id="end_work_exprience">
+                                <label for="end_education">End :</label>
+                                <input type="date" class="form-control" name="end_education"  id="end_education">
                             </div>
 
                             <input type="text" class="form-control d-none" name="user_id"  id="user_id">
@@ -175,7 +152,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="acc_title">Delete Work Experience </h5>
+                    <h5 class="modal-title" id="acc_title">Delete Education </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -184,7 +161,7 @@
                     <p id="acc_msg">are you sure you want to delete?</p>
                 </div>
                 <div class="modal-footer">
-                    <a href="{{ route('workExperiences/delete',$x) }}" class="btn btn-success si_accept_confirm">Yes</a>
+                    <a href="{{ route('educations/delete',$x) }}" class="btn btn-success si_accept_confirm">Yes</a>
                     <button type="button" class="btn btn-danger si_accept_cancel" data-dismiss="modal">Cancel</button>
                 </div>
             </div>

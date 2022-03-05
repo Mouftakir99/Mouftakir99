@@ -25,7 +25,7 @@ class StoreLanguagueRequest extends FormRequest
     {
         return [
             'name_languague' => 'required',
-            'level_languague' => 'required|numeric',
+            'level_languague' => 'required|max:5|min:0'
         ];
     }
 }

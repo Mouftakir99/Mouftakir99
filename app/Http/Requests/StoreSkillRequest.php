@@ -13,7 +13,7 @@ class StoreSkillRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class StoreSkillRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name_skill' => 'required',
+            'pourcentage_skill' => 'required',
         ];
     }
 }

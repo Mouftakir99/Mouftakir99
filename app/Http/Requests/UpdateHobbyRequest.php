@@ -13,7 +13,7 @@ class UpdateHobbyRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class UpdateHobbyRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name_hobby' => 'required',
+            'photo_hobby' => 'required',
         ];
     }
 }

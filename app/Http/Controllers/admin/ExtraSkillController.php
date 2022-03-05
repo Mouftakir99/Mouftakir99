@@ -17,17 +17,7 @@ class ExtraSkillController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return view('admin.extraSkills');
     }
 
     /**
@@ -38,30 +28,15 @@ class ExtraSkillController extends Controller
      */
     public function store(StoreExtraSkillRequest $request)
     {
-        //
+        try{
+            ExtraSkill::query()->create($request->all());
+            return back()->with('status','your ExtraSkill has been inserted !!');
+        }
+        catch(Exception $ex){
+            return back()->with('failed',"operation failed");
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\ExtraSkill  $extraSkill
-     * @return \Illuminate\Http\Response
-     */
-    public function show(ExtraSkill $extraSkill)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\ExtraSkill  $extraSkill
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(ExtraSkill $extraSkill)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -72,7 +47,16 @@ class ExtraSkillController extends Controller
      */
     public function update(UpdateExtraSkillRequest $request, ExtraSkill $extraSkill)
     {
-        //
+        try{
+            $data = $request->all();
+
+            $extraSkill->update($data);
+
+            return back()->with('status','your ExtraSkill has been updated !!');
+        }
+        catch(Exception $ex){
+            return back()->with('failed',"operation failed");
+        }
     }
 
     /**
@@ -83,6 +67,16 @@ class ExtraSkillController extends Controller
      */
     public function destroy(ExtraSkill $extraSkill)
     {
-        //
+        try{
+            $data = $request->all();
+
+            $extraSkill->delete();
+
+            return back()->with('status','your ExtraSkill has been updated !!');
+        }
+        catch(Exception $ex){
+            return back()->with('failed',"operation failed");
+        }
     }
+
 }

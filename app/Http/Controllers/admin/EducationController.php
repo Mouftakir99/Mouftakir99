@@ -17,7 +17,7 @@ class EducationController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.educations');
     }
 
     /**
@@ -27,7 +27,7 @@ class EducationController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.add-educations');
     }
 
     /**
@@ -38,30 +38,15 @@ class EducationController extends Controller
      */
     public function store(StoreEducationRequest $request)
     {
-        //
+        try{
+            Education::query()->create($request->all());
+            return back()->with('status','your Education has been inserted !!');
+        }
+        catch(Exception $ex){
+            return back()->with('failed',"operation failed");
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Education  $education
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Education $education)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Education  $education
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Education $education)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -72,7 +57,16 @@ class EducationController extends Controller
      */
     public function update(UpdateEducationRequest $request, Education $education)
     {
-        //
+        try{
+            $data = $request->all();
+
+            $education->update($data);
+
+            return back()->with('status','your Education has been updated !!');
+        }
+        catch(Exception $ex){
+            return back()->with('failed',"operation failed");
+        }
     }
 
     /**
@@ -83,6 +77,12 @@ class EducationController extends Controller
      */
     public function destroy(Education $education)
     {
-        //
+        try{
+            Education::query()->delete();
+            return back()->with('status','your Education has been deleted !!');
+        }
+        catch(Exception $ex){
+            return back()->with('failed',"operation failed");
+        }
     }
 }

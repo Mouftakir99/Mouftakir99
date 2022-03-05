@@ -17,7 +17,8 @@ class Skill extends Model
      */
     protected $fillable = [
         'name_skill',
-        'pourcentage_skill'
+        'pourcentage_skill',
+        'user_id'
     ];
 
     public function user(){

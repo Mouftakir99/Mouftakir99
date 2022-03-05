@@ -150,8 +150,21 @@
 									<li><a href="{{ route('AddworkExperiences') }}">Add  Work Experience</a></li>
 								</ul>
 							</li>
+                            <li class="submenu">
+								<a href="#"><i class="fe fe-document"></i> <span> Educations </span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a href="{{ route('educations') }}"> Educations </a></li>
+									<li><a href="{{ route('AddEducations') }}">Add Educations</a></li>
+								</ul>
+							</li>
                             <li>
                                 <a href="{{ route('languagues') }}"><i class="fe fe-layout"></i> <span>Languagues</span></a>
+                            </li>
+                            <li>
+                                <a href="{{ route('skills') }}"><i class="fe fe-layout"></i> <span>Skills</span></a>
+                            </li>
+                            <li>
+                                <a href="{{ route('extraSkills') }}"><i class="fe fe-layout"></i> <span>Extra Skills</span></a>
                             </li>
                             <li>
                                 <a href="{{ route('profile') }}"><i class="fe fe-user-plus"></i><span>profile</span></a>

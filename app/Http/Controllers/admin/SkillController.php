@@ -17,17 +17,7 @@ class SkillController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return view('admin.skills');
     }
 
     /**
@@ -38,30 +28,15 @@ class SkillController extends Controller
      */
     public function store(StoreSkillRequest $request)
     {
-        //
+        try{
+            Skill::query()->create($request->all());
+            return back()->with('status','your Skill has been inserted !!');
+        }
+        catch(Exception $ex){
+            return back()->with('failed',"operation failed");
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Skill  $skill
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Skill $skill)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Skill  $skill
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Skill $skill)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -72,7 +47,13 @@ class SkillController extends Controller
      */
     public function update(UpdateSkillRequest $request, Skill $skill)
     {
-        //
+        try{
+            $skill->update($request->all());
+            return back()->with('status','your Skill has been updated !!');
+        }
+        catch(Exception $ex){
+            return back()->with('failed',"operation failed");
+        }
     }
 
     /**
@@ -83,6 +64,12 @@ class SkillController extends Controller
      */
     public function destroy(Skill $skill)
     {
-        //
+        try{
+            $skill->delete();
+            return back()->with('status','your Skill has been deleted !!');
+        }
+        catch(Exception $ex){
+            return back()->with('failed',"operation failed");
+        }
     }
 }

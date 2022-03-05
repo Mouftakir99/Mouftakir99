@@ -43,28 +43,6 @@ class SocialMediaController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\SocialMedia  $socialMedia
-     * @return \Illuminate\Http\Response
-     */
-    public function show(SocialMedia $socialMedia)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\SocialMedia  $socialMedia
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(SocialMedia $socialMedia)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateSocialMediaRequest  $request

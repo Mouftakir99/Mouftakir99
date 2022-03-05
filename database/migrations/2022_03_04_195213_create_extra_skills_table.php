@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name_extra_skill');
             $table->string('desciption_extra_skill');
-            $table->float('pourcentage_extra_skills')->min(0)->max(100);
+            $table->float('pourcentage_extra_skill')->min(0)->max(100);
             $table->foreignId('user_id');
             $table->timestamps();
         });

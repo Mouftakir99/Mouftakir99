@@ -13,7 +13,7 @@ class UpdateSocialMediaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class UpdateSocialMediaRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name_socialMedia' => 'required',
+            'link_socialMedia' => 'required'
         ];
     }
 }

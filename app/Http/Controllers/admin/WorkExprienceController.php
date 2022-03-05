@@ -47,7 +47,7 @@ class WorkExprienceController extends Controller
             return back()->with('status','your Work Experience has been inserted !!');
         }
         catch(Exception $ex){
-            return back()->with('failed',"operation failed".$ex);
+            return back()->with('failed',"operation failed");
         }
     }
 
@@ -69,7 +69,7 @@ class WorkExprienceController extends Controller
             return back()->with('status','your Work Experience has been updated !!');
         }
         catch(Exception $ex){
-            return back()->with('failed',"operation failed".$ex);
+            return back()->with('failed',"operation failed");
         }
     }
 
