@@ -17,17 +17,7 @@ class HobbyController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return view('admin.hobbies');
     }
 
     /**
@@ -39,7 +29,21 @@ class HobbyController extends Controller
     public function store(StoreHobbyRequest $request)
     {
         try{
-            Hobby::query()->create($request->all());
+            $data = $request->all();
+
+            if($request->hasfile('photo_hobby')){
+                $photo_hobby = $request->file('photo_hobby');
+                $photo_hobbies = time().'.'.$photo_hobby->extension();
+                $photo_hobby->storeAs('public/website/hobbies/',$photo_hobbies);
+            }
+
+            Hobby::query()->create([
+                'name_hobby' => $data['name_hobby'],
+                'photo_hobby' => $photo_hobbies,
+                'user_id' => $data['user_id'],
+                'created_at' =>now()
+            ]);
+
             return back()->with('status','your Hobby has been inserted !!');
         }
         catch(Exception $ex){
@@ -59,8 +63,23 @@ class HobbyController extends Controller
     {
         try{
             $data = $request->all();
+            if(\File::exists(public_path('storage/website/hobbies/'.$hobby->photo_hobby))){
+                \File::delete(public_path('storage/website/hobbies/'.$hobby->photo_hobby));
+            }
 
-            $hobby->update($data);
+            $photo_hobies = '';
+            if($request->hasfile('photo_hobby')){
+                $photo_hobby = $request->file('photo_hobby');
+                $photo_hobies = time().'.'.$photo_hobby->extension();
+                $photo_hobby->storeAs('public/website/hobbies/',$photo_hobies);
+            }
+
+            $hobby->update([
+                'name_hobby' => $data['name_hobby'],
+                'photo_hobby' => $photo_hobies,
+                'user_id' => $data['user_id'],
+                'created_at' =>now()
+            ]);
 
             return back()->with('status','your Hobby has been updated !!');
         }
@@ -68,6 +87,7 @@ class HobbyController extends Controller
             return back()->with('failed',"operation failed");
         }
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -78,9 +98,11 @@ class HobbyController extends Controller
     public function destroy(Hobby $hobby)
     {
         try{
-            $data = $request->all();
+            if(\File::exists(public_path('storage/website/hobbies/'.$hobby->photo_hobby))){
+                \File::delete(public_path('storage/website/hobbies/'.$hobby->photo_hobby));
+            }
 
-            $hobby->update($data);
+            $hobby->delete();
 
             return back()->with('status','your Hobby has been deleted !!');
         }

@@ -121,8 +121,7 @@
         </div>
     </div>
 
-</x-admin-layout>
-	<!-- ModelUpdate -->
+    <!-- ModelUpdate -->
     <div class="modal fade" id="UpdateModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog model-lg">
             <div class="modal-content">
@@ -171,6 +170,7 @@
     </div>
     <!-- /Modele -->
 
+
     <div class="modal fade" id="deleteConfirmModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -190,3 +190,6 @@
             </div>
         </div>
     </div>
+
+</x-admin-layout>
+

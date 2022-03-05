@@ -167,7 +167,19 @@
                                 <a href="{{ route('extraSkills') }}"><i class="fe fe-layout"></i> <span>Extra Skills</span></a>
                             </li>
                             <li>
+                                <a href="{{ route('socialMedia') }}"><i class="fe fe-layout"></i> <span>Social Media</span></a>
+                            </li>
+                            <li>
+                                <a href="{{ route('hobbies') }}"><i class="fe fe-layout"></i> <span>Hobbies</span></a>
+                            </li>
+                            <li>
+                                <a href="{{ route('references') }}"><i class="fe fe-layout"></i> <span>References</span></a>
+                            </li>
+                            <li>
                                 <a href="{{ route('profile') }}"><i class="fe fe-user-plus"></i><span>profile</span></a>
+                            </li>
+                            <li>
+                                <a href="{{ route('setting') }}"><i class="fe fe-vector"></i><span>Setting</span></a>
                             </li>
 						</ul>
 					</div>

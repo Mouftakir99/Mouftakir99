@@ -143,29 +143,55 @@
             </div>
 			<!-- /Header -->
 
-			<!-- Sidebar -->
-            <div class="sidebar" id="sidebar">
-                <div class="sidebar-inner slimscroll">
-					<div id="sidebar-menu" class="sidebar-menu">
-						<ul>
-							<li class="menu-title">
-								<span>Main</span>
-							</li>
-							<li>
-								<a href="{{ route('dashboard') }}"><i class="fe fe-home"></i> <span>Dashboard</span></a>
-							</li>
-                            <li class="submenu">
-								<a href="#"><i class="fe fe-document"></i> <span> Work Experiences </span> <span class="menu-arrow"></span></a>
-								<ul style="display: none;">
-									<li><a href="{{ route('workExperiences') }}"> Work Experiences </a></li>
-									<li><a href="{{ route('AddworkExperiences') }}">Add  Work Experience</a></li>
-								</ul>
-							</li>
-						</ul>
-					</div>
+				<!-- Sidebar -->
+                <div class="sidebar" id="sidebar">
+                    <div class="sidebar-inner slimscroll">
+                        <div id="sidebar-menu" class="sidebar-menu">
+                            <ul>
+                                <li class="menu-title">
+                                    <span>Main</span>
+                                </li>
+                                <li>
+                                    <a href="{{ route('dashboard') }}"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+                                </li>
+                                <li class="submenu">
+                                    <a href="#"><i class="fe fe-document"></i> <span> Work Experiences </span> <span class="menu-arrow"></span></a>
+                                    <ul style="display: none;">
+                                        <li><a href="{{ route('workExperiences') }}"> Work Experiences </a></li>
+                                        <li><a href="{{ route('AddworkExperiences') }}">Add  Work Experience</a></li>
+                                    </ul>
+                                </li>
+                                <li class="submenu">
+                                    <a href="#"><i class="fe fe-document"></i> <span> Educations </span> <span class="menu-arrow"></span></a>
+                                    <ul style="display: none;">
+                                        <li><a href="{{ route('educations') }}"> Educations </a></li>
+                                        <li><a href="{{ route('AddEducations') }}">Add Educations</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="{{ route('languagues') }}"><i class="fe fe-layout"></i> <span>Languagues</span></a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('skills') }}"><i class="fe fe-layout"></i> <span>Skills</span></a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('extraSkills') }}"><i class="fe fe-layout"></i> <span>Extra Skills</span></a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('socialMedia') }}"><i class="fe fe-layout"></i> <span>Social Media</span></a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('profile') }}"><i class="fe fe-user-plus"></i><span>profile</span></a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('setting') }}"><i class="fe fe-vector"></i><span>Setting</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </div>
-			<!-- /Sidebar -->
+                <!-- /Sidebar -->
+
 
 			<!-- Page Wrapper -->
             <div class="page-wrapper">

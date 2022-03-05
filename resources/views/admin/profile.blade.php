@@ -152,8 +152,8 @@
     </div>
 
 
-      <!-- Edit Details Modal -->
-      <div class="modal fade" id="edit_personal_details" aria-hidden="true" role="dialog">
+    <!-- Edit Details Modal -->
+    <div class="modal fade" id="edit_personal_details" aria-hidden="true" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document" >
             <div class="modal-content">
                 <div class="modal-header">
@@ -200,11 +200,11 @@
                             </div>
                             <div class="col-12 col-sm-12">
                                 <label>About Me</label>
-                                <textarea name="about_me" class="form-control autogrow mb-3" cols="30" rows="10">{{ Auth::user()->about_me }}</textarea>
+                                <textarea name="about_me" class="form-control autogrow mb-3" cols="30" rows="5">{{ Auth::user()->about_me }}</textarea>
                             </div>
                             <div class="col-12 col-sm-12">
                                 <label>description</label>
-                                <textarea name="desciption" class="form-control autogrow mb-3" cols="30" rows="10">{{ Auth::user()->about_me }}</textarea>
+                                <textarea name="desciption" class="form-control autogrow mb-3" cols="30" rows="7">{{ Auth::user()->about_me }}</textarea>
                             </div>
                             <div class="col-12">
                                 <h5 class="form-title"><span>Address</span></h5>

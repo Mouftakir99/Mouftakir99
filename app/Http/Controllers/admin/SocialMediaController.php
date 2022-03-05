@@ -18,7 +18,7 @@ class SocialMediaController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.socialMedia');
     }
 
     /**
@@ -40,6 +40,13 @@ class SocialMediaController extends Controller
     public function store(StoreSocialMediaRequest $request)
     {
         //
+        try{
+            SocialMedia::query()->create($request->all());
+            return back()->with('status','your Social Media has been inserted !!');
+        }
+        catch(Exception $ex){
+            return back()->with('failed',"operation failed");
+        }
     }
 
     /**
@@ -51,7 +58,14 @@ class SocialMediaController extends Controller
      */
     public function update(UpdateSocialMediaRequest $request, SocialMedia $socialMedia)
     {
-        //
+        try{
+            $data = $request->all();
+            $socialMedia->update($data);
+            return back()->with('status','your Social Media has been updated !!');
+        }
+        catch(Exception $ex){
+            return back()->with('failed',"operation failed");
+        }
     }
 
     /**
@@ -62,6 +76,12 @@ class SocialMediaController extends Controller
      */
     public function destroy(SocialMedia $socialMedia)
     {
-        //
+        try{
+            $socialMedia->delete();
+            return back()->with('status','your Social Media has been deleted !!');
+        }
+        catch(Exception $ex){
+            return back()->with('failed',"operation failed");
+        }
     }
 }

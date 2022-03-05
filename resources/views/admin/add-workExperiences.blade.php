@@ -35,69 +35,66 @@
             <div class="card">
                 <div class="card-body custom-edit-service">
 
-
-                <!-- Add Medicine -->
-                <form  action="{{ route('workExperiences/added') }}" method="POST">
-                    @csrf
-                    <div class="service-fields mb-3">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Name Work Experince<span class="text-danger">*</span> :</label>
-                                    <input class="form-control" type="text" name="name_work_exprience" id="name_work_exprience">
+                    <!-- Add workExperiences -->
+                    <form  action="{{ route('workExperiences/added') }}" method="POST">
+                        @csrf
+                        <div class="service-fields mb-3">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Name Work Experince<span class="text-danger">*</span> :</label>
+                                        <input class="form-control" type="text" name="name_work_exprience" id="name_work_exprience">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Status Work Experince<span class="text-danger">*</span> :</label>
-                                    <input class="form-control" type="text" name="statut_work_exprience" id="statut_work_exprience">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Status Work Experince<span class="text-danger">*</span> :</label>
+                                        <input class="form-control" type="text" name="statut_work_exprience" id="statut_work_exprience">
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="service-fields mb-3">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <label>Descriptions <span class="text-danger">*</span> :</label>
-                                    <textarea class="form-control service-desc autogrow" name="description_work_exprience"></textarea>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="service-fields mb-3">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Date Work Experince : </label>
-                                    <input class="form-control" type="date" name="start_work_exprience">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>End Work Experince<span class="text-danger">*</span> : </label>
-                                    <input class="form-control" type="date" name="end_work_exprience">
+                        <div class="service-fields mb-3">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label>Descriptions <span class="text-danger">*</span> :</label>
+                                        <textarea class="form-control service-desc autogrow" name="description_work_exprience"></textarea>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <input class="form-control d-none" type="text" name="user_id" value="{{ Auth::user()->id }}">
+                        <div class="service-fields mb-3">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Date Work Experince : </label>
+                                        <input class="form-control" type="date" name="start_work_exprience">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>End Work Experince<span class="text-danger">*</span> : </label>
+                                        <input class="form-control" type="date" name="end_work_exprience">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input class="form-control d-none" type="text" name="user_id" value="{{ Auth::user()->id }}">
 
 
-                    <div class="submit-section">
-                        <button class="btn btn-primary submit-btn" type="submit" name="form_submit" value="submit">Submit</button>
-                    </div>
-                </form>
-                <!-- /Add Medicine -->
-
+                        <div class="submit-section">
+                            <button class="btn btn-primary submit-btn" type="submit" name="form_submit" value="submit">Submit</button>
+                        </div>
+                    </form>
+                    <!-- /Add workExperiences -->
 
                 </div>
             </div>
-
 
         </div>
     </div>

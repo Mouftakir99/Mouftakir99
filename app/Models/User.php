@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Reference;
 use App\Models\WorkExprience;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Jetstream\HasProfilePhoto;
@@ -31,6 +32,7 @@ class User extends Authenticatable
         'phone',
         'birthday',
         'about_me',
+        'description',
         'email',
         'password',
     ];
@@ -95,5 +97,13 @@ class User extends Authenticatable
 
     public function socialMedia(){
         return $this->hasMany(socialMedia::class);
+    }
+
+    public function references(){
+        return $this->hasMany(Reference::class);
+    }
+
+    public function settings(){
+        return $this->hasOne(Setting::class);
     }
 }

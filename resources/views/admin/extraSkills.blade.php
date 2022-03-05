@@ -3,14 +3,14 @@
     <div class="page-header">
         <div class="row">
             <div class="col-sm-7 col-auto">
-                <h3 class="page-title">Extra extraSkills</h3>
+                <h3 class="page-title">Extra Skills</h3>
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Extra extraSkills</li>
+                    <li class="breadcrumb-item active">Extra Skills</li>
                 </ul>
             </div>
             <div class="col-sm-5 col">
-                <a  href="javascript:void(0);" class="btn btn-primary float-right mt-2" data-toggle="modal" data-target="#AddModal">Add New Extra extraSkills</a>
+                <a  href="javascript:void(0);" class="btn btn-primary float-right mt-2" data-toggle="modal" data-target="#AddModal">Add New Extra Skills</a>
             </div>
         </div>
     </div>
@@ -115,11 +115,11 @@
                                 <input type="text" class="form-control" name="name_extra_skill">
                             </div>
                             <div class="col-md-12">
-                                <label for="desciption_extra_skill">Description Extra Skill:</label>
+                                <label for="desciption_extra_skill">Description Extra Skill :</label>
                                 <textarea name="desciption_extra_skill" class="form-control autogrow" id="" cols="30" rows="10"></textarea>
                             </div>
                             <div class="col-md-12">
-                                <label for="pourcentage_extra_skill">pourcentage Extra Skill:</label>
+                                <label for="pourcentage_extra_skill">pourcentage Extra Skill :</label>
                                 <input type="text" class="form-control" name="pourcentage_extra_skill">
                             </div>
                             <input type="text" class="form-control d-none" name="user_id"  value="{{ Auth::user()->id }}">

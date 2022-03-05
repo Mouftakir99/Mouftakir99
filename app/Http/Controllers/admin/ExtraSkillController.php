@@ -68,8 +68,6 @@ class ExtraSkillController extends Controller
     public function destroy(ExtraSkill $extraSkill)
     {
         try{
-            $data = $request->all();
-
             $extraSkill->delete();
 
             return back()->with('status','your ExtraSkill has been updated !!');

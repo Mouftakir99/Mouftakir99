@@ -85,8 +85,40 @@
             </div>
         </div>
     </div>
+   <!-- Add Model -->
+    <div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen-lg-down">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="acc_title">Add New Skill</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <form action="{{ route('skills/added') }}" method="POST">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="name_skill">Name skill :</label>
+                                <input type="text" class="form-control" name="name_skill">
+                            </div>
+                            <div class="col-md-12">
+                                <label for="pourcentage_skill">pourcentage skill:</label>
+                                <input type="text" class="form-control" name="pourcentage_skill">
+                            </div>
+                            <input type="text" class="form-control d-none" name="user_id"  id="user_id"  value="{{ Auth::user()->id }}">
 
-</x-admin-layout>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger">Valider</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- /Add Model -->
 
 	<!-- ModelUpdate -->
     <div class="modal fade" id="UpdateModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -122,43 +154,6 @@
     </div>
     <!-- /ModelUpdate -->
 
-
-
-    <!-- Add Model -->
-    <div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen-lg-down">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="acc_title">Add New Skill</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <form action="{{ route('skills/added') }}" method="POST">
-                    @csrf
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label for="name_skill">Name skill :</label>
-                                <input type="text" class="form-control" name="name_skill">
-                            </div>
-                            <div class="col-md-12">
-                                <label for="pourcentage_skill">pourcentage skill:</label>
-                                <input type="text" class="form-control" name="pourcentage_skill">
-                            </div>
-                            <input type="text" class="form-control d-none" name="user_id"  id="user_id"  value="{{ Auth::user()->id }}">
-
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-danger">Valider</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- /Add Model -->
-
     <!-- delete Model -->
     <div class="modal fade" id="deleteConfirmModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -180,3 +175,6 @@
         </div>
     </div>
     <!-- /delete Model -->
+
+</x-admin-layout>
+

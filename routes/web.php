@@ -2,10 +2,16 @@
 
 use App\Http\Controllers\admin\EducationController;
 use App\Http\Controllers\admin\ExtraSkillController;
+use App\Http\Controllers\admin\HobbyController;
 use App\Http\Controllers\admin\LanguagueController;
 use App\Http\Controllers\admin\ProfileController;
+use App\Http\Controllers\admin\ReferenceController;
+use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\SkillController;
+use App\Http\Controllers\admin\SocialMediaController;
 use App\Http\Controllers\admin\WorkExprienceController;
+use App\Models\Reference;
+use App\Models\SocialMedia;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -63,14 +69,39 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
         Route::get('extraSkills/delete/{extraSkill}','destroy')->name('extraSkills/delete');
     });
 
+    Route::controller(HobbyController::class)->group(function(){
+        Route::get('hobbies','index')->name('hobbies');
+        Route::post('hobbies/added','store')->name('hobbies/added');
+        Route::post('hobbies/updated/{hobby}','update')->name('hobbies/updated');
+        Route::get('hobbies/delete/{hobby}','destroy')->name('hobbies/delete');
+    });
+
+    Route::controller(ReferenceController::class)->group(function(){
+        Route::get('references','index')->name('references');
+        Route::post('references/added','store')->name('references/added');
+        Route::post('references/updated/{referennce}','update')->name('references/updated');
+        Route::get('references/delete/{referennce}','destroy')->name('references/delete');
+    });
+
+    Route::controller(SocialMediaController::class)->group(function(){
+        Route::get('socialMedia','index')->name('socialMedia');
+        Route::post('socialMedia/added','store')->name('socialMedia/added');
+        Route::post('socialMedia/updated/{socialMedia}','update')->name('socialMedia/updated');
+        Route::get('socialMedia/delete/{socialMedia}','destroy')->name('socialMedia/delete');
+    });
+
+
     Route::controller(ProfileController::class)->group(function(){
         Route::get('profile','index')->name('profile');
         Route::post('profile/update/{id}','update')->name('profile/updated');
         Route::post('change-password','store')->name('password-change');
     });
 
-
-
+    Route::controller(SettingController::class)->group(function(){
+        Route::get('setting','index')->name('setting');
+        Route::post('setting/update/{setting}','update')->name('setting/updated');
+        Route::get('setting/delete/{setting}','delete')->name('setting/deleted');
+    });
 
 });
 
