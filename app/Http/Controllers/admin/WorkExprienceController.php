@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers\admin;
 
+use Exception;
+use Illuminate\Http\Request;
 use App\Models\WorkExprience;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreWorkExprienceRequest;
 use App\Http\Requests\UpdateWorkExprienceRequest;
 
@@ -15,7 +20,8 @@ class WorkExprienceController extends Controller
      */
     public function index()
     {
-        //
+
+        return view('admin.workExperiences');
     }
 
     /**
@@ -25,7 +31,7 @@ class WorkExprienceController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.add-workExperiences');
     }
 
     /**
@@ -36,30 +42,15 @@ class WorkExprienceController extends Controller
      */
     public function store(StoreWorkExprienceRequest $request)
     {
-        //
+        try{
+            WorkExprience::query()->create($request->all());
+            return back()->with('status','your Work Experience has been inserted !!');
+        }
+        catch(Exception $ex){
+            return back()->with('failed',"operation failed".$ex);
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\WorkExprience  $workExprience
-     * @return \Illuminate\Http\Response
-     */
-    public function show(WorkExprience $workExprience)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\WorkExprience  $workExprience
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(WorkExprience $workExprience)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -68,9 +59,18 @@ class WorkExprienceController extends Controller
      * @param  \App\Models\WorkExprience  $workExprience
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateWorkExprienceRequest $request, WorkExprience $workExprience)
+    public function update(UpdateWorkExprienceRequest $request,WorkExprience $workExprience)
     {
-        //
+        try{
+            $data = $request->all();
+
+            $workExprience->update($data);
+
+            return back()->with('status','your Work Experience has been updated !!');
+        }
+        catch(Exception $ex){
+            return back()->with('failed',"operation failed".$ex);
+        }
     }
 
     /**
@@ -81,6 +81,12 @@ class WorkExprienceController extends Controller
      */
     public function destroy(WorkExprience $workExprience)
     {
-        //
+        try{
+            $workExprience->delete();
+            return back()->with('status','your Work Experience has been deleted !!');
+        }
+        catch(Exception $ex){
+            return back()->with('failed',"operation failed");
+        }
     }
 }

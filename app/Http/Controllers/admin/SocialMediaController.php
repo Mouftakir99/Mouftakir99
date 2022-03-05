@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Models\SocialMedia;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreSocialMediaRequest;
 use App\Http\Requests\UpdateSocialMediaRequest;
 

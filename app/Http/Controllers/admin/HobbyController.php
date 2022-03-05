@@ -5,7 +5,9 @@ namespace App\Http\Controllers\admin;
 use App\Models\Hobby;
 use App\Http\Requests\StoreHobbyRequest;
 use App\Http\Requests\UpdateHobbyRequest;
-
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 class HobbyController extends Controller
 {
     /**

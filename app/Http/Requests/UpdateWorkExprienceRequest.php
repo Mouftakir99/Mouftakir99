@@ -13,7 +13,7 @@ class UpdateWorkExprienceRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class UpdateWorkExprienceRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name_work_exprience' => 'required',
+            'statut_work_exprience' => 'required',
+            'description_work_exprience' => 'required',
+            'start_work_exprience' =>'required_if:end_work_exprience,nullable',
+            'end_work_exprience' => 'required'
         ];
     }
 }

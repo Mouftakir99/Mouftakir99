@@ -5,7 +5,9 @@ namespace App\Http\Controllers\admin;
 use App\Models\Education;
 use App\Http\Requests\StoreEducationRequest;
 use App\Http\Requests\UpdateEducationRequest;
-
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 class EducationController extends Controller
 {
     /**

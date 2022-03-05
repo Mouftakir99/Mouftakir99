@@ -5,7 +5,9 @@ namespace App\Http\Controllers\admin;
 use App\Models\ExtraSkill;
 use App\Http\Requests\StoreExtraSkillRequest;
 use App\Http\Requests\UpdateExtraSkillRequest;
-
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 class ExtraSkillController extends Controller
 {
     /**

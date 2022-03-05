@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\WorkExprience;
+use Laravel\Sanctum\HasApiTokens;
+use Laravel\Jetstream\HasProfilePhoto;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Fortify\TwoFactorAuthenticatable;
-use Laravel\Jetstream\HasProfilePhoto;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -58,4 +59,36 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function workExperiences(){
+        return $this->hasMany(WorkExprience::class);
+    }
+
+    public function address(){
+        return $this->hasOne(Address::class);
+    }
+
+    public function educations(){
+        return $this->hasMany(Education::class);
+    }
+
+    public function skills(){
+        return $this->hasMany(Skill::class);
+    }
+
+    public function extraSkills(){
+        return $this->hasMany(ExtraSkill::class);
+    }
+
+    public function hobbies(){
+        return $this->hasMany(Hobby::class);
+    }
+
+    public function languagues(){
+        return $this->hasMany(Languague::class);
+    }
+
+    public function socialMedia(){
+        return $this->hasMany(socialMedia::class);
+    }
 }

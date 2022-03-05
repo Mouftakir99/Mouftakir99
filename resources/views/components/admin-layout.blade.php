@@ -14,16 +14,15 @@
 		<!-- Fontawesome CSS -->
         <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">
 
+		<link rel="stylesheet" href="{{ asset('assets/plugins/datatables/datatables.min.css') }}">
+
 		<!-- Feathericon CSS -->
         <link rel="stylesheet" href="{{ asset('assets/css/feathericon.min.css') }}">
 
 		<!-- Main CSS -->
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+        @yield('style')
 
-		<!--[if lt IE 9]>
-			<script src="assets/js/html5shiv.min.js"></script>
-			<script src="assets/js/respond.min.js"></script>
-		<![endif]-->
     </head>
     <body>
 
@@ -36,10 +35,10 @@
 				<!-- Logo -->
                 <div class="header-left">
                     <a href="{{ route('dashboard') }}" class="logo">
-						<img src="assets/img/logo.png" alt="Logo">
+						<img src="{{ asset('assets/img/logo.png') }}" alt="Logo">
 					</a>
 					<a href="{{ route('dashboard') }}" class="logo logo-small">
-						<img src="assets/img/logo-small.png" alt="Logo" width="30" height="30">
+						<img src="{{ asset('assets/img/logo-small.png') }}" alt="Logo" width="30" height="30">
 					</a>
                 </div>
 				<!-- /Logo -->
@@ -142,8 +141,21 @@
 								<span>Main</span>
 							</li>
 							<li>
-								<a href="index.html"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+								<a href="{{ route('dashboard') }}"><i class="fe fe-home"></i> <span>Dashboard</span></a>
 							</li>
+                            <li class="submenu">
+								<a href="#"><i class="fe fe-document"></i> <span> Work Experiences </span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a href="{{ route('workExperiences') }}"> Work Experiences </a></li>
+									<li><a href="{{ route('AddworkExperiences') }}">Add  Work Experience</a></li>
+								</ul>
+							</li>
+                            <li>
+                                <a href="{{ route('languagues') }}"><i class="fe fe-layout"></i> <span>Languagues</span></a>
+                            </li>
+                            <li>
+                                <a href="{{ route('profile') }}"><i class="fe fe-user-plus"></i><span>profile</span></a>
+                            </li>
 						</ul>
 					</div>
                 </div>
@@ -170,11 +182,16 @@
         <script src="{{ asset('assets/js/popper.min.js') }}"></script>
         <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 
+        <!-- Datatables JS -->
+		<script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+		<script src="{{ asset('assets/plugins/datatables/datatables.min.js') }}"></script>
+
 		<!-- Slimscroll JS -->
         <script src="{{ asset('assets/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
 
 		<!-- Custom JS -->
 		<script  src="{{ asset('assets/js/script.js') }}"></script>
-
+		<script  src="{{ asset('assets/js/autogrow.js') }}"></script>
+        @yield('script')
     </body>
 </html>

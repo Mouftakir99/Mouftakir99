@@ -21,6 +21,8 @@
 		<!-- Fontawesome CSS -->
         <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">
 
+		<link rel="stylesheet" href="{{ asset('assets/plugins/datatables/datatables.min.css') }}">
+
 		<!-- Feathericon CSS -->
         <link rel="stylesheet" href="{{ asset('assets/css/feathericon.min.css') }}">
 
@@ -29,6 +31,7 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        @yield('style')
 
         @livewireStyles
     </head>
@@ -45,7 +48,7 @@
                     <a href="{{ route('dashboard') }}" class="logo">
 						<img src="{{ asset('assets/img/logo.png') }}" alt="Logo">
 					</a>
-					<a href="{{ route('dashboard') }}" class="logo logo-small">
+					<a href="{{ route('dashboard') }}" class="logo logo-small ml-3">
 						<img src="{{ asset('assets/img/logo-small.png') }}" alt="Logo" width="30" height="30">
 					</a>
                 </div>
@@ -106,11 +109,11 @@
 					<!-- /Notifications -->
 
 					<!-- User Menu -->
-					<li class="nav-item dropdown has-arrow  mt-3">
-						<a href="#" class="dropdown-toggle nav-link" style="background-color: white;margin-top:-2px" data-toggle="dropdown">
+					<li class="nav-item dropdown has-arrow">
+						<a href="#" class="dropdown-toggle nav-link" style="background-color: white;padding-top: 10px" data-toggle="dropdown">
 							<span class="user-img"><img class="rounded-full w-80" src="{{ Auth::user()->profile_photo_url }}" width="31" alt="{{ Auth::user()->name }}"></span>
 						</a>
-						<div class="dropdown-menu">
+						<div class="dropdown-menu" style="margin-top: -11px">
 							<div class="user-header">
 								<div class="avatar avatar-sm">
 									<img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" class="avatar-img rounded-circle">
@@ -152,16 +155,11 @@
 								<a href="{{ route('dashboard') }}"><i class="fe fe-home"></i> <span>Dashboard</span></a>
 							</li>
                             <li class="submenu">
-								<a href="#"><i class="fe fe-document"></i> <span> Products</span> <span class="menu-arrow"></span></a>
+								<a href="#"><i class="fe fe-document"></i> <span> Work Experiences </span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
-									<li><a href="products.html">Products</a></li>
-									<li><a href="add-product.html">Add Product</a></li>
-									<li><a href="outstock.html">Out-Stock</a></li>
-									<li><a href="expired.html">Expired</a></li>
+									<li><a href="{{ route('workExperiences') }}"> Work Experiences </a></li>
+									<li><a href="{{ route('AddworkExperiences') }}">Add  Work Experience</a></li>
 								</ul>
-							</li>
-                            <li>
-								<a href="{{ route('dashboard') }}"><i class="fe fe-home"></i> <span>Dashboard</span></a>
 							</li>
 						</ul>
 					</div>
@@ -191,11 +189,17 @@
         <script src="{{ asset('assets/js/popper.min.js') }}"></script>
         <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 
+        <!-- Datatables JS -->
+		<script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+		<script src="{{ asset('assets/plugins/datatables/datatables.min.js') }}"></script>
+
 		<!-- Slimscroll JS -->
         <script src="{{ asset('assets/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
 
 		<!-- Custom JS -->
 		<script  src="{{ asset('assets/js/script.js') }}"></script>
+		<script  src="{{ asset('assets/js/autogrow.js') }}"></script>
+        @yield('script')
 
     </body>
 </html>

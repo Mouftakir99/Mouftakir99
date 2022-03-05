@@ -5,7 +5,9 @@ namespace App\Http\Controllers\admin;
 use App\Models\Languague;
 use App\Http\Requests\StoreLanguagueRequest;
 use App\Http\Requests\UpdateLanguagueRequest;
-
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 class LanguagueController extends Controller
 {
     /**
@@ -15,7 +17,7 @@ class LanguagueController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.languages');
     }
 
     /**
@@ -36,29 +38,13 @@ class LanguagueController extends Controller
      */
     public function store(StoreLanguagueRequest $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Languague  $languague
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Languague $languague)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Languague  $languague
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Languague $languague)
-    {
-        //
+        try{
+            Languague::query()->create($request->all());
+            return back()->with('status','your languague has been inserted !!');
+        }
+        catch(Exception $ex){
+            return back()->with('failed',"operation failed".$ex);
+        }
     }
 
     /**
@@ -70,7 +56,16 @@ class LanguagueController extends Controller
      */
     public function update(UpdateLanguagueRequest $request, Languague $languague)
     {
-        //
+        try{
+            $data = $request->all();
+
+            $languague->update($data);
+
+            return back()->with('status','your languague has been updated !!');
+        }
+        catch(Exception $ex){
+            return back()->with('failed',"operation failed");
+        }
     }
 
     /**
@@ -81,6 +76,12 @@ class LanguagueController extends Controller
      */
     public function destroy(Languague $languague)
     {
-        //
+        try{
+            $languague->delete();
+            return back()->with('status','your languague has been deleted !!');
+        }
+        catch(Exception $ex){
+            return back()->with('failed',"operation failed");
+        }
     }
 }

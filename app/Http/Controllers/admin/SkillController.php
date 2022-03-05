@@ -5,7 +5,9 @@ namespace App\Http\Controllers\admin;
 use App\Models\Skill;
 use App\Http\Requests\StoreSkillRequest;
 use App\Http\Requests\UpdateSkillRequest;
-
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 class SkillController extends Controller
 {
     /**
