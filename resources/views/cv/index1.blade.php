@@ -59,14 +59,15 @@
                             <h2><a href="#">{{ $user->setting->name_website }}</a></h2>
                             <p>{{ $user->setting->description_website }}</p>
                         @else
-                            <h2><a href="#">Civic</a></h2>
-                            <p>Enhance your online presence</p>
+                            <h2><a href="#">Mouftakir Aiman</a></h2>
+                            <p>Welcome to my Cv</p>
                         @endif
-					</div>
-				</div>
-				<div class="col-md-8 text-md-right header-buttons">
-					<a href="#" class="site-btn">Discover me</a>
-				</div>
+                    </div>
+                </div>
+                {{-- <div class="col-md-7 text-md-right header-buttons">
+                    <a href="#" class="site-btn">Download CV</a>
+                    <a href="#" class="site-btn">Discover me</a>
+                </div> --}}
 			</div>
 		</div>
 	</header>
@@ -157,7 +158,7 @@
 	</div>
 	<!-- Social links section end -->
 
-	<!-- Resume section start -->
+	<!-- Work -->
 	<section class="resume-section spad">
 		<div class="container-fluid">
 			<div class="row">
@@ -192,9 +193,9 @@
 			</div>
 		</div>
 	</section>
-	<!-- Resume section end -->
+	<!-- Work -->
 
-	<!-- Resume section start -->
+	<!-- Education -->
 	<section class="resume-section with-bg spad">
 		<div class="container-fluid">
 			<div class="row">
@@ -229,10 +230,10 @@
 			</div>
 		</div>
 	</section>
-	<!-- Resume section end -->
+	<!-- Education -->
 
 
-	<!-- Review section start -->
+	<!-- References -->
 	<section class="review-section spad pb-0">
 		<div class="container-fluid">
 			<div class="row">
@@ -273,7 +274,7 @@
 			</div>
 		</div>
 	</section>
-	<!-- Review section end -->
+	<!-- References end -->
 
 
 	<!-- Portfolio section start -->
@@ -335,7 +336,7 @@
 	</section>
 	<!-- Portfolio section end -->
 
-	<!-- Extra section start -->
+	<!-- Extra Skills start -->
 	<section class="extra-section spad pb-0">
 		<div class="container-fluid">
 			<div class="row">
@@ -418,9 +419,9 @@
 			</div>
 		</div>
 	</section>
-	<!-- Extra section end -->
+	<!-- Extra Skills end -->
 
-	<!-- Contact section start -->
+	<!-- Contact start -->
 	<section class="contact-section spad">
 		<div class="container-fluid">
 			<div class="row">
@@ -451,7 +452,7 @@
 			</div>
 		</div>
 	</section>
-	<!-- Contact section end -->
+	<!-- Contact end -->
 
 	<!-- Footer section start -->
 	<footer class="footer-section">

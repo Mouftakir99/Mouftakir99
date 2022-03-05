@@ -44,15 +44,15 @@
                                 <h2><a href="#">{{ $user->setting->name_website }}</a></h2>
                                 <p>{{ $user->setting->description_website }}</p>
                             @else
-                                <h2><a href="#">Civic</a></h2>
-                                <p>Enhance your online presence</p>
+                                <h2><a href="#">Mouftakir Aiman</a></h2>
+                                <p>Welcome to my Cv</p>
                             @endif
-						</div>
-					</div>
-					<div class="col-md-8 text-md-right header-buttons">
-						<a href="#" class="site-btn">Download CV</a>
-						<a href="#" class="site-btn">Discover me</a>
-					</div>
+                        </div>
+                    </div>
+                {{-- <div class="col-md-7 text-md-right header-buttons">
+                    <a href="#" class="site-btn">Download CV</a>
+                    <a href="#" class="site-btn">Discover me</a>
+                </div> --}}
 				</div>
 			</div>
 		</header>

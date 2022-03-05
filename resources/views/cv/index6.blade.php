@@ -12,8 +12,9 @@
 
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
+
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets-admin/assets/img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,600,600i,700" rel="stylesheet">
@@ -44,15 +45,15 @@
                                 <h2><a href="#">{{ $user->setting->name_website }}</a></h2>
                                 <p>{{ $user->setting->description_website }}</p>
                             @else
-                                <h2><a href="#">Civic</a></h2>
-                                <p>Enhance your online presence</p>
+                                <h2><a href="#">Mouftakir Aiman</a></h2>
+                                <p>Welcome to my Cv</p>
                             @endif
 						</div>
 					</div>
-					<div class="col-md-7 text-md-right header-buttons">
+					{{-- <div class="col-md-7 text-md-right header-buttons">
 						<a href="#" class="site-btn">Download CV</a>
 						<a href="#" class="site-btn">Discover me</a>
-					</div>
+					</div> --}}
 				</div>
 			</div>
 		</header>

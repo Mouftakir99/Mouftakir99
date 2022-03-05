@@ -44,16 +44,20 @@
                             @csrf
                             <div class="form-group">
                                 <label>Website Name</label>
-                                <input type="text" class="form-control" name="name_website">
+                                <input type="text" class="form-control" name="name_website" value="{{ Auth::user()->setting->name_website }}">
+                            </div>
+                            <div class="form-group">
+                                <label>Description Name</label>
+                                <input type="text" class="form-control" name="description_website" value="{{ Auth::user()->setting->description_website }}">
                             </div>
                             <div class="form-group">
                                 <label>Website Logo</label>
-                                <input type="file" class="form-control" name="logo_website">
+                                <input type="file" class="form-control" name="logo_website" value="{{ Auth::user()->setting->logo_website }}">
                                 <small class="text-secondary">Recommended image size is <b>150px x 150px</b></small>
                             </div>
                             <div class="form-group mb-0">
                                 <label>Favicon</label>
-                                <input type="file" class="form-control" name="favicon_website">
+                                <input type="file" class="form-control" name="favicon_website" value="{{ Auth::user()->setting->favicon_website }}">
                                 <small class="text-secondary">Recommended image size is <b>16px x 16px</b> or <b>32px x 32px</b></small><br>
                                 <small class="text-secondary">Accepted formats : only png and ico</small>
                             </div>

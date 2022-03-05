@@ -15,6 +15,7 @@ use App\Http\Controllers\client\CVController;
 use App\Models\Contact;
 use App\Models\Reference;
 use App\Models\SocialMedia;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,7 +30,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('cv.index1',['user'=>User::first()]);
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
@@ -116,11 +117,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 
 
 Route::controller(CVController::class)->group(function(){
-    Route::get('index1','index1')->name('index1');
-    Route::get('index2','index2')->name('index2');
-    Route::get('index3','index3')->name('index3');
-    Route::get('index4','index4')->name('index4');
-    Route::get('index5','index5')->name('index5');
-    Route::get('index6','index6')->name('index6');
-
+    Route::get('welcome/{id}','index')->name('index');
 });
