@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('work_expriences', function (Blueprint $table) {
             $table->id();
-            $table->string('name_work_exprience');
-            $table->string('statut_work_exprience');
-            $table->longText('description_work_exprience');
-            $table->date('start_work_exprience');
-            $table->date('end_work_exprience');
-            $table->foreignId('user_id');
+            $table->string('name_work_exprience')->nullable();
+            $table->string('statut_work_exprience')->nullable();
+            $table->longText('description_work_exprience')->nullable();
+            $table->date('start_work_exprience')->nullable();
+            $table->date('end_work_exprience')->nullable();
+            $table->foreignId('user_id')->nullable();
             $table->timestamps();
         });
     }

@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Contact;
 use App\Models\Reference;
+use App\Models\Portefolio;
 use App\Models\WorkExprience;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Jetstream\HasProfilePhoto;
@@ -55,6 +57,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
+        'birthday' => 'date',
         'email_verified_at' => 'datetime',
     ];
 
@@ -69,6 +72,10 @@ class User extends Authenticatable
 
     public function workExperiences(){
         return $this->hasMany(WorkExprience::class);
+    }
+
+    public function contacts(){
+        return $this->hasMany(Contact::class);
     }
 
     public function address(){
@@ -101,6 +108,10 @@ class User extends Authenticatable
 
     public function references(){
         return $this->hasMany(Reference::class);
+    }
+
+    public function portefolios(){
+        return $this->hasMany(Portefolio::class);
     }
 
     public function settings(){

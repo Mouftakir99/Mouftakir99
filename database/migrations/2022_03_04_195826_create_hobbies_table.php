@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('hobbies', function (Blueprint $table) {
             $table->id();
-            $table->string('name_hobby');
-            $table->string('photo_hobby');
-            $table->foreignId('user_id');
+            $table->string('name_hobby')->nullable();
+            $table->string('photo_hobby')->nullable();
+            $table->foreignId('user_id')->nullable();
             $table->timestamps();
         });
     }

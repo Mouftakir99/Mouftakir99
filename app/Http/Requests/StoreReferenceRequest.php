@@ -24,10 +24,10 @@ class StoreReferenceRequest extends FormRequest
     public function rules()
     {
         return [
-            'name_reference' =>'required|string',
-            'poste_reference' => 'required|string',
-            'company_reference' => 'string',
-            // 'description_reference'
+            'name_reference' =>'string',
+            'poste_reference' => '',
+            'company_reference' => '',
+            'description_reference' => ''
         ];
     }
 }

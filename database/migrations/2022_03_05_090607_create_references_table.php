@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('references', function (Blueprint $table) {
             $table->id();
-            $table->string('name_reference');
-            $table->string('poste_reference');
-            $table->string('company_reference');
-            $table->longText('description_reference');
+            $table->string('name_reference')->nullable();
+            $table->string('poste_reference')->nullable();
+            $table->string('company_reference')->nullable();
+            $table->longText('description_reference')->nullable();
             $table->foreignId('user_id');
             $table->timestamps();
         });

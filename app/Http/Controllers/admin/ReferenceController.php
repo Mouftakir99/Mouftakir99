@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Models\Reference;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreReferenceRequest;
 use App\Http\Requests\UpdateReferenceRequest;
@@ -48,8 +49,9 @@ class ReferenceController extends Controller
     public function update(UpdateReferenceRequest $request, Reference $reference)
     {
         try{
-            $data = $request->all();
-            $reference->update($data);
+            $data = $request->except(['_token']);
+            $reference->query('id',$reference)->update($data);
+
             return back()->with('status','your Reference has been updated !!');
         }
         catch(Exception $ex){
@@ -66,7 +68,7 @@ class ReferenceController extends Controller
     public function destroy(Reference $reference)
     {
         try{
-            $reference->update($request->all());
+            $reference->query('id',$reference)->delete();
             return back()->with('status','your Reference has been deleted !!');
         }
         catch(Exception $ex){

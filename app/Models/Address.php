@@ -20,7 +20,6 @@ class Address extends Model
         'city',
         'country',
         'zipCode',
-        'user_id'
     ];
 
     public function user(){

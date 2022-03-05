@@ -284,7 +284,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12 d-flex">
+        <div class="col-md-6 d-flex">
             <!-- Feed Activity -->
             <div class="card  card-table flex-fill">
                 <div class="card-header">
@@ -319,6 +319,95 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="col-md-6 d-flex">
+            <!-- Feed Activity -->
+            <div class="card  card-table flex-fill">
+                <div class="card-header">
+                    <h4 class="card-title"><a href="{{ route('references') }}" style="color: black">References List</a></h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-center mb-0">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Poste</th>
+                                    <th>Company</th>
+                                    <th>Description</th>
+                                    <th>User Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php  $x='';  @endphp
+                                @forelse (Auth::user()->references as $key => $reference)
+                                    <tr>
+                                        <td>{{ $key + 1 }}</td>
+                                        <td>{{ $reference->name_reference }}</td>
+                                        <td>{{ $reference->poste_reference }}</td>
+                                        <td>{{ $reference->company_reference }}</td>
+                                        <td>
+                                            @if ( strlen($reference->description_reference ) > 10)
+                                                {{ substr($reference->description_reference  , 0, 10).'...';}}
+                                                @else
+                                                    {{ $reference->description_reference   }}
+                                            @endif
+                                        </td>
+                                        <td>{{ $reference->user->email }}</td>
+                                @empty
+                                    <tr>
+                                        <td colspan="7">
+                                            No data Found
+                                        </td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <div class="row">
+        <div class="col-md-12 d-flex">
+            <!-- Feed Activity -->
+            <div class="card  card-table flex-fill">
+                <div class="card-header">
+                    <h4 class="card-title"><a href="{{ route('contacts') }}" style="color: black">Contacts List</a></h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-center mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Subject</th>
+                                    <th>Message</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse (Auth::user()->contacts as $item)
+                                    <tr>
+                                        <td>{{ $item->name_contact }}</td>
+                                        <td>{{ $item->email_contact }}</td>
+                                        <td>{{ $item->subject_contact }}</td>
+                                        <td>{{ $item->message_contact }}</td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="3">
+                                            No data Found
+                                        </td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </x-admin-layout>

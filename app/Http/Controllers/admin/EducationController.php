@@ -59,7 +59,6 @@ class EducationController extends Controller
     {
         try{
             $data = $request->all();
-
             $education->update($data);
 
             return back()->with('status','your Education has been updated !!');

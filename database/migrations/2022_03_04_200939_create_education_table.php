@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('education', function (Blueprint $table) {
             $table->id();
-            $table->string('name_education');
-            $table->string('statut_education');
-            $table->longText('description_education');
-            $table->date('start_education');
-            $table->date('end_education');
-            $table->foreignId('user_id');
+            $table->string('name_education')->nullable();
+            $table->string('statut_education')->nullable();
+            $table->longText('description_education')->nullable();
+            $table->date('start_education')->nullable();
+            $table->date('end_education')->nullable();
+            $table->foreignId('user_id')->nullable();
             $table->timestamps();
         });
     }

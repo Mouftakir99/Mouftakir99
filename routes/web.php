@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\ContactController;
 use App\Http\Controllers\admin\EducationController;
 use App\Http\Controllers\admin\ExtraSkillController;
 use App\Http\Controllers\admin\HobbyController;
@@ -10,6 +11,8 @@ use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\SkillController;
 use App\Http\Controllers\admin\SocialMediaController;
 use App\Http\Controllers\admin\WorkExprienceController;
+use App\Http\Controllers\client\CVController;
+use App\Models\Contact;
 use App\Models\Reference;
 use App\Models\SocialMedia;
 use Illuminate\Support\Facades\Route;
@@ -90,6 +93,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
         Route::get('socialMedia/delete/{socialMedia}','destroy')->name('socialMedia/delete');
     });
 
+    Route::controller(ContactController::class)->group(function(){
+        Route::get('contacts','index')->name('contacts');
+        Route::post('contacts/added','store')->name('contacts/added');
+        Route::post('contacts/updated/{contact}','update')->name('contacts/updated');
+        Route::get('contacts/delete/{contact}','destroy')->name('contacts/delete');
+    });
 
     Route::controller(ProfileController::class)->group(function(){
         Route::get('profile','index')->name('profile');
@@ -105,3 +114,13 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 
 });
 
+
+Route::controller(CVController::class)->group(function(){
+    Route::get('index1','index1')->name('index1');
+    Route::get('index2','index2')->name('index2');
+    Route::get('index3','index3')->name('index3');
+    Route::get('index4','index4')->name('index4');
+    Route::get('index5','index5')->name('index5');
+    Route::get('index6','index6')->name('index6');
+
+});

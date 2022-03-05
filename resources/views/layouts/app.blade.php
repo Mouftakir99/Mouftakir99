@@ -13,21 +13,21 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
 		<!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+        <link rel="shortcut icon" type="image/x-icon" href="assets-admin/img/favicon.png">
 
 		<!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets-admin/css/bootstrap.min.css') }}">
 
 		<!-- Fontawesome CSS -->
-        <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets-admin/css/font-awesome.min.css') }}">
 
-		<link rel="stylesheet" href="{{ asset('assets/plugins/datatables/datatables.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('assets-admin/plugins/datatables/datatables.min.css') }}">
 
 		<!-- Feathericon CSS -->
-        <link rel="stylesheet" href="{{ asset('assets/css/feathericon.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets-admin/css/feathericon.min.css') }}">
 
 		<!-- Main CSS -->
-        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets-admin/css/style.css') }}">
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
@@ -46,10 +46,10 @@
 				<!-- Logo -->
                 <div class="header-left mt-3">
                     <a href="{{ route('dashboard') }}" class="logo">
-						<img src="{{ asset('assets/img/logo.png') }}" alt="Logo">
+						<img src="{{ asset('assets-admin/img/logo.png') }}" alt="Logo">
 					</a>
 					<a href="{{ route('dashboard') }}" class="logo logo-small ml-3">
-						<img src="{{ asset('assets/img/logo-small.png') }}" alt="Logo" width="30" height="30">
+						<img src="{{ asset('assets-admin/img/logo-small.png') }}" alt="Logo" width="30" height="30">
 					</a>
                 </div>
 				<!-- /Logo -->
@@ -90,7 +90,7 @@
 										<a href="#">
 											<div class="media">
 												<span class="avatar avatar-sm">
-													<img class="avatar-img rounded-circle" alt="User Image" src="assets/img/doctors/doctor-thumb-01.jpg">
+													<img class="avatar-img rounded-circle" alt="User Image" src="assets-admin/img/doctors/doctor-thumb-01.jpg">
 												</span>
 												<div class="media-body">
 													<p class="noti-details"><span class="noti-title">Dr. Ruby Perrin</span> Schedule <span class="noti-title">her appointment</span></p>
@@ -209,22 +209,22 @@
 		<!-- /Main Wrapper -->
 
 		<!-- jQuery -->
-        <script src="{{ asset('assets/js/jquery-3.2.1.min.js') }}"></script>
+        <script src="{{ asset('assets-admin/js/jquery-3.2.1.min.js') }}"></script>
 
 		<!-- Bootstrap Core JS -->
-        <script src="{{ asset('assets/js/popper.min.js') }}"></script>
-        <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('assets-admin/js/popper.min.js') }}"></script>
+        <script src="{{ asset('assets-admin/js/bootstrap.min.js') }}"></script>
 
         <!-- Datatables JS -->
-		<script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-		<script src="{{ asset('assets/plugins/datatables/datatables.min.js') }}"></script>
+		<script src="{{ asset('assets-admin/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+		<script src="{{ asset('assets-admin/plugins/datatables/datatables.min.js') }}"></script>
 
 		<!-- Slimscroll JS -->
-        <script src="{{ asset('assets/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
+        <script src="{{ asset('assets-admin/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
 
 		<!-- Custom JS -->
-		<script  src="{{ asset('assets/js/script.js') }}"></script>
-		<script  src="{{ asset('assets/js/autogrow.js') }}"></script>
+		<script  src="{{ asset('assets-admin/js/script.js') }}"></script>
+		<script  src="{{ asset('assets-admin/js/autogrow.js') }}"></script>
         @yield('script')
 
     </body>

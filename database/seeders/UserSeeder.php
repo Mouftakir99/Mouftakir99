@@ -20,6 +20,7 @@ class UserSeeder extends Seeder
                 'firstName' => 'Mouftakir',
                 'lastName' => 'Aiman',
                 'name' => 'Mouftakir Aiman',
+                'phone' => '+212 620273920',
                 'birthday' => '1999/01/17',
                 'email' => 'mouftakirayman@gmail.com',
                 'password' => bcrypt('admin')

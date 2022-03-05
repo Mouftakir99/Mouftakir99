@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('extra_skills', function (Blueprint $table) {
             $table->id();
-            $table->string('name_extra_skill');
-            $table->string('desciption_extra_skill');
-            $table->float('pourcentage_extra_skill')->min(0)->max(100);
-            $table->foreignId('user_id');
+            $table->string('name_extra_skill')->nullable();
+            $table->string('desciption_extra_skill')->nullable();
+            $table->float('pourcentage_extra_skill')->min(0)->max(100)->nullable();
+            $table->foreignId('user_id')->nullable();
             $table->timestamps();
         });
     }

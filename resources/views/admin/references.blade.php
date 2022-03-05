@@ -197,7 +197,7 @@
                     <p id="acc_msg">are you sure you want to delete?</p>
                 </div>
                 <div class="modal-footer">
-                    <a href="{{ route('workExperiences/delete',$x) }}" class="btn btn-success si_accept_confirm">Yes</a>
+                    <a href="{{ route('references/delete',$x) }}" class="btn btn-success si_accept_confirm">Yes</a>
                     <button type="button" class="btn btn-danger si_accept_cancel" data-dismiss="modal">Cancel</button>
                 </div>
             </div>
