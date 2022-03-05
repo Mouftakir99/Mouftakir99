@@ -24,6 +24,15 @@ class WorkExprience extends Model
         'user_id'
     ];
 
+       /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'start_work_exprience' => 'date',
+        'end_work_exprience' => 'date',
+    ];
     public function user(){
         return $this->belongsTo(User::class);
     }

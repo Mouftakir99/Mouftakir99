@@ -55,12 +55,16 @@
 			<div class="row">
 				<div class="col-md-4">
 					<div class="site-logo">
-						<h2><a href="#">Civic</a></h2>
-						<p>Enhance your online presence</p>
+                        @if($user->setting)
+                            <h2><a href="#">{{ $user->setting->name_website }}</a></h2>
+                            <p>{{ $user->setting->description_website }}</p>
+                        @else
+                            <h2><a href="#">Civic</a></h2>
+                            <p>Enhance your online presence</p>
+                        @endif
 					</div>
 				</div>
 				<div class="col-md-8 text-md-right header-buttons">
-					<a href="" onclick="window.print()" class="site-btn">Download CV</a>
 					<a href="#" class="site-btn">Discover me</a>
 				</div>
 			</div>
@@ -87,8 +91,8 @@
                                         @if ($user->address)
                                             <li><span>Address</span><div style="font-size: 19px;display: inline;">{{ $user->address->address.', '.$user->address->city.', '.$user->address->country }}</div></li>
                                         @endif
-                                            <li><span>E-mail</span>{{ $user->email }}</li>
-                                            <li><span>Phone </span>{{ $user->phone }}</li>
+                                        <li><span>E-mail</span><a href="{{ 'mailto:'.$user->email }}" style="color: white;font-size: 17px;">{{ $user->email }}</a></li>
+                                        <li><span>Phone </span><a href="{{ 'Tel:'.$user->phone }}" style="color: white;font-size: 17px;">{{ $user->phone }}</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -115,11 +119,10 @@
                             </div>
                             <div class="col-lg-6">
                                 <figure class="hero-image">
-                                    <img src="img/hero.jpg" alt="5">
+                                    <img src="{{ asset('assets/img/hero.jpg') }}" alt="5">
                                 </figure>
                             </div>
                         @endif
-
 					</div>
 				</div>
 			</div>
@@ -138,13 +141,13 @@
                                 <a href="{{ $item->link_socialMedia	 }}"><i class="fa fa-{{ $item->name_socialMedia }}"></i></a>
                             </div>
                         @empty
-                        <div class="social-links">
-							<a href=""><i class="fa fa-pinterest"></i></a>
-							<a href=""><i class="fa fa-linkedin"></i></a>
-							<a href=""><i class="fa fa-instagram"></i></a>
-							<a href=""><i class="fa fa-facebook"></i></a>
-							<a href=""><i class="fa fa-twitter"></i></a>
-						</div>
+                            <div class="social-links">
+                                <a href=""><i class="fa fa-pinterest"></i></a>
+                                <a href=""><i class="fa fa-linkedin"></i></a>
+                                <a href=""><i class="fa fa-instagram"></i></a>
+                                <a href=""><i class="fa fa-facebook"></i></a>
+                                <a href=""><i class="fa fa-twitter"></i></a>
+                            </div>
                         @endforelse
 						<h2 class="hidden-md hidden-sm">My Social Profiles</h2>
 					</div>
@@ -165,7 +168,7 @@
 					<ul class="resume-list">
                         @forelse ($user->workExperiences as $item)
                             <li>
-                                <h2>{{ $item->start_work_exprience.' - '.$item->end_work_exprience }}</h2>
+                                <h2>{{ $item->start_work_exprience->format('Y') .' - '.$item->end_work_exprience->format('Y') }}</h2>
                                 <h3>{{ $item->name_work_exprience }}</h3>
                                 <h4>{{ $item->statut_work_exprience }}</h4>
                                 <p>{{ $item->description_work_exprience }}</p>
@@ -184,7 +187,6 @@
                                 <p>Sit amet, consectetur adipiscing elit. Sed porttitor orci ut sapien scelerisque viverra. Sed trist ique justo nec mauris efficitur, ut lacinia elit dapibus. In egestas elit in dap ibus laoreet. Duis magna libero, fermentum ut facilisis id, pulvinar eget tortor. Vestibulum pelle ntesque tincidunt lorem, vitae euismod felis porttitor sed. </p>
                             </li>
                         @endforelse
-
 					</ul>
 				</div>
 			</div>
@@ -203,7 +205,7 @@
 					<ul class="resume-list">
                         @forelse ($user->educations as $item)
                             <li>
-                                <h2>{{ $item->start_education.' - '.$item->end_education }}</h2>
+                                <h2>{{ $item->start_education->format('Y') .' - '. $item->end_education->format('Y') }}</h2>
                                 <h3>{{ $item->name_education }}</h3>
                                 <h4>{{ $item->statut_education }}</h4>
                                 <p>{{ $item->description_education }}</p>
@@ -300,28 +302,28 @@
                     @empty
                         <div class="col-xl-3 col-lg-6 col-md-6">
                             <div class="portfolio-item">
-                                <a href="img/portfolio/1.jpg" class="set-bg port-pic" data-setbg="img/portfolio/1.jpg"></a>
+                                <a href="assets/img/portfolio/1.jpg" class="set-bg port-pic" data-setbg="assets/img/portfolio/1.jpg"></a>
                                 <h2>Brand Campaign</h2>
                                 <p>Graphic design</p>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-6 col-md-6">
                             <div class="portfolio-item">
-                                <a href="img/portfolio/2.jpg" class="set-bg port-pic" data-setbg="img/portfolio/2.jpg"></a>
+                                <a href="assets/img/portfolio/2.jpg" class="set-bg port-pic" data-setbg="assets/img/portfolio/2.jpg"></a>
                                 <h2>A Corporate Identity</h2>
                                 <p>Graphic design</p>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-6 col-md-6">
                             <div class="portfolio-item">
-                                <a href="img/portfolio/3.jpg" class="set-bg port-pic" data-setbg="img/portfolio/3.jpg"></a>
+                                <a href="assets/img/portfolio/3.jpg" class="set-bg port-pic" data-setbg="assets/img/portfolio/3.jpg"></a>
                                 <h2>Web Design Website</h2>
                                 <p>Graphic design</p>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-6 col-md-6">
                             <div class="portfolio-item">
-                                <a href="img/portfolio/4.jpg" class="set-bg port-pic" data-setbg="img/portfolio/4.jpg"></a>
+                                <a href="assets/img/portfolio/4.jpg" class="set-bg port-pic" data-setbg="assets/img/portfolio/4.jpg"></a>
                                 <h2>Logo design</h2>
                                 <p>Graphic design</p>
                             </div>
@@ -411,8 +413,6 @@
                                 </div>
                             </div>
                         @endforelse
-
-
 					</div>
 				</div>
 			</div>

@@ -114,7 +114,7 @@ class User extends Authenticatable
         return $this->hasMany(Portefolio::class);
     }
 
-    public function settings(){
+    public function setting(){
         return $this->hasOne(Setting::class);
     }
 }

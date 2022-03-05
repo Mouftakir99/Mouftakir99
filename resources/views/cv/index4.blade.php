@@ -26,12 +26,6 @@
 	<link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}"/>
 	<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"/>
 
-
-	<!--[if lt IE 9]>
-	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js') }}"></script>
-	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js') }}"></script>
-	<![endif]-->
-
 </head>
 <body>
 	<!-- Page Preloder -->
@@ -46,8 +40,13 @@
 				<div class="row">
 					<div class="col-md-4">
 						<div class="site-logo">
-							<h2><a href="#">Civic</a></h2>
-							<p>Enhance your online presence</p>
+                            @if ($user->setting)
+                                <h2><a href="#">{{ $user->setting->name_website }}</a></h2>
+                                <p>{{ $user->setting->description_website }}</p>
+                            @else
+                                <h2><a href="#">Civic</a></h2>
+                                <p>Enhance your online presence</p>
+                            @endif
 						</div>
 					</div>
 					<div class="col-md-8 text-md-right header-buttons">
@@ -66,7 +65,7 @@
 						<!-- hero section -->
 						<section class="intro-section">
 							<figure class="hero-image">
-								<img src="img/hero-3.jpg" alt="">
+								<img src="{{ $user->profile_photo_url }}" alt="">
 							</figure>
 							<div class="hero-text">
 								<h2>{{ $user->firstName}}<br>{{ $user->lastName }}</h2>
@@ -80,8 +79,8 @@
                                     @if ($user->address)
                                         <li><span>Address</span><div style="font-size: 19px;display: inline;">{{ $user->address->address.', '.$user->address->city.', '.$user->address->country }}</div></li>
                                     @endif
-                                        <li><span>E-mail</span><a href="{{ 'mailto:'.$user->email }}" style="color: white">{{ $user->email }}</a></li>
-                                        <li><span>Phone </span><a href="{{ 'Tel:'.$user->phone }}" style="color: white">{{ $user->phone }}</a></li>
+                                    <li><span>E-mail</span><a href="{{ 'mailto:'.$user->email }}" style="color: white;font-size: 17px;">{{ $user->email }}</a></li>
+                                    <li><span>Phone </span><a href="{{ 'Tel:'.$user->phone }}" style="color: white;font-size: 17px;">{{ $user->phone }}</a></li>
                                 </ul>
 							</div>
 						</section>
@@ -289,45 +288,59 @@
 							</div>
 							<!-- progress bars -->
 							<div class="skills">
-								<div class="single-progress-item">
-									<div class="progress-bar-style" data-progress="99"></div>
-									<p>Design</p>
-								</div>
-								<div class="single-progress-item">
-									<div class="progress-bar-style" data-progress="75"></div>
-									<p>Illsutrator</p>
-								</div>
-								<div class="single-progress-item">
-									<div class="progress-bar-style" data-progress="87"></div>
-									<p>Photoshop</p>
-								</div>
-								<div class="single-progress-item">
-									<div class="progress-bar-style" data-progress="60"></div>
-									<p>HTML</p>
-								</div>
+                                @forelse ($user->skills as $item)
+                                    <div class="single-progress-item">
+                                        <div class="progress-bar-style" data-progress="{{ $item->pourcentage_skill }}"></div>
+                                        <p>{{ $item->name_skill }}</p>
+                                    </div>
+                                @empty
+                                    <div class="single-progress-item">
+                                        <div class="progress-bar-style" data-progress="99"></div>
+                                        <p>Design</p>
+                                    </div>
+                                    <div class="single-progress-item">
+                                        <div class="progress-bar-style" data-progress="75"></div>
+                                        <p>Illsutrator</p>
+                                    </div>
+                                    <div class="single-progress-item">
+                                        <div class="progress-bar-style" data-progress="87"></div>
+                                        <p>Photoshop</p>
+                                    </div>
+                                    <div class="single-progress-item">
+                                        <div class="progress-bar-style" data-progress="60"></div>
+                                        <p>HTML</p>
+                                    </div>
+                                @endforelse
 							</div>
 							<!-- icon boxes -->
 							<div class="icon-box-area spad">
-								<div class="icon-box">
-									<i class="flaticon-032-cooking"></i>
-									<p>Cooking</p>
-								</div>
-								<div class="icon-box">
-									<i class="flaticon-015-photo-camera"></i>
-									<p>Photography</p>
-								</div>
-								<div class="icon-box">
-									<i class="flaticon-013-chess-1"></i>
-									<p>Playing Chess</p>
-								</div>
-								<div class="icon-box">
-									<i class="flaticon-001-yoga"></i>
-									<p>Yoga</p>
-								</div>
-								<div class="icon-box">
-									<i class="flaticon-035-tent"></i>
-									<p>Camping in nature</p>
-								</div>
+								@forelse ($user->hobbies as $item)
+                                    <div class="icon-box">
+                                        <img src="{{ asset('storage/website/hobbies'.$item->photo_hobby) }}" width="32px" alt="{{ $item->name_hobby }}">
+                                        <p>{{ $item->name_hobby }}</p>
+                                    </div>
+                                @empty
+                                    <div class="icon-box">
+                                        <i class="flaticon-032-cooking"></i>
+                                        <p>Cooking</p>
+                                    </div>
+                                    <div class="icon-box">
+                                        <i class="flaticon-015-photo-camera"></i>
+                                        <p>Photography</p>
+                                    </div>
+                                    <div class="icon-box">
+                                        <i class="flaticon-013-chess-1"></i>
+                                        <p>Playing Chess</p>
+                                    </div>
+                                    <div class="icon-box">
+                                        <i class="flaticon-001-yoga"></i>
+                                        <p>Yoga</p>
+                                    </div>
+                                    <div class="icon-box">
+                                        <i class="flaticon-035-tent"></i>
+                                        <p>Camping in nature</p>
+                                    </div>
+                                @endforelse
 							</div>
 						</div>
 						<!-- skill section end -->

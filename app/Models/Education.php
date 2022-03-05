@@ -24,6 +24,17 @@ class Education extends Model
         'user_id'
     ];
 
+     /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'start_education' => 'date',
+        'end_education' => 'date',
+    ];
+
+
     public function user(){
         return $this->belongsTo(User::class);
     }

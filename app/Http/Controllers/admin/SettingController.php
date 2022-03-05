@@ -29,7 +29,7 @@ class SettingController extends Controller
      * @param  \App\Models\Setting  $setting
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateSettingRequest $request, $setting)
+    public function update(UpdateSettingRequest $request,Setting $setting)
     {
         try{
             $data = $request->all();
@@ -56,7 +56,8 @@ class SettingController extends Controller
 
             Setting::query()->updateOrCreate([ 'user_id' => $setting],
             [
-                'name_website' => 'name_website',
+                'name_website' => $data['name_website'],
+                'description_website' => $data['description_website'],
                 'favicon_website' => $faviconWeb,
                 'logo_website' => $logoWeb,
             ]);
